@@ -208,6 +208,11 @@ public class ProfileActivity extends AppCompatActivity {
             userDbRef.updateChildren(updates).addOnCompleteListener(dbTask -> {
                 progressBar.setVisibility(View.GONE);
                 if (dbTask.isSuccessful()) {
+                    FirebaseDatabase.getInstance()
+                            .getReference("Leaderboard")
+                            .child(currentUser.getUid())
+                            .child("displayName")
+                            .setValue(name);
                     Toast.makeText(ProfileActivity.this, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {

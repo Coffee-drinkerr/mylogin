@@ -2,6 +2,7 @@
   "project_info": {
     "project_number": "667275400280",
     "project_id": "mylogin-8401e",
+    "firebase_url": "https://mylogin-8401e-default-rtdb.firebaseio.com/",
     "storage_bucket": "mylogin-8401e.firebasestorage.app"
   },
   "client": [

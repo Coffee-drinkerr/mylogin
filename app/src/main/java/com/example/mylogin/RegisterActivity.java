@@ -93,6 +93,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Registration successful!", Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    intent.putExtra("displayName", name);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
@@ -108,6 +109,11 @@ public class RegisterActivity extends AppCompatActivity {
                     FirebaseDatabase.getInstance().getReference("Users")
                             .child(user.getUid())
                             .setValue(userData);
+
+                    FirebaseDatabase.getInstance().getReference("Leaderboard")
+                            .child(user.getUid())
+                            .child("displayName")
+                            .setValue(name);
                 });
     }
 }
